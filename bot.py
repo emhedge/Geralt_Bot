@@ -1,6 +1,7 @@
 import discord
 import responses
 
+
 async def send_message(message, user_message, is_private):
     try:
         response = responses.get_response(user_message)
@@ -10,14 +11,14 @@ async def send_message(message, user_message, is_private):
         print(e)
 
 def run_discord_bot():
-    TOKEN = 'MTA3MjUwODgyNTc3NDYwNDQxOQ.G1a2Uj.CFeX3ecw81ttdsARpaASblBWd8kj6Zj_umqBPI'
+    TOKEN = 'MTA3MjUwODgyNTc3NDYwNDQxOQ.GnV5x1.A8prxdtfiP2rkdlxnDBnZZ7kkrd9oXQtQnmJEc'
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
 
     @client.event
     async def on_ready():
-            print(f'{client.user} is now running!')
+        print(f'{client.user} is now running!')
 
     @client.event
     async def on_message(message):
@@ -27,7 +28,7 @@ def run_discord_bot():
         user_message = str(message.content)
         channel = str(message.channel)
 
-        print(f'{username} said "{user_message}" ({channel})')
+        print(f'{username} said: "{user_message}" ({channel})')
 
         if user_message[0] == '?':
             user_message = user_message[1:]
